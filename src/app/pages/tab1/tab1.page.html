@@ -1,0 +1,16 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="12"> 
+      Tab 1 view html
+      <ion-input (ionChange)="nameChange($event)" placeholder="Enter Name"></ion-input>
+      <ion-input (ionChange)="surnameChange($event)" placeholder="Enter Surname"></ion-input>
+    </ion-col>
+    <ion-col size="12"> 
+      <presentation-example 
+        [name]="user.getName()"
+        [surname]="user.getSurname()">
+      </presentation-example>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  
