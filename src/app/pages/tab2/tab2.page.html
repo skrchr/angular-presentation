@@ -1,15 +1,34 @@
-<ion-grid>
+<ion-grid class="tab2-grid">
   <ion-row>
     <ion-col size="12"> 
       Tab 1 view html
     </ion-col>
+
+    <!-- Showcase how data persists -->
     <ion-col size="12"> 
-      
       <presentation-example 
         [name]="user.getName()"
         [surname]="user.getSurname()">
       </presentation-example>
+    </ion-col>
 
+    <ion-col size="12"> 
+      <ion-input [(ngModel)]="componentAddValue"  placeholder="Insert Component Id"></ion-input>
+      <ion-button (click)="addComponent()" color="primary">Add Component</ion-button>
+
+    </ion-col>
+
+    <!-- *ngIf Example -->
+    <ion-col *ngIf="utils.getPublicComponents().length > 0">
+      <p>Public Components</p>
+      <!-- *ngFor Example, ngSwitch example -->
+      <div *ngFor="let component of utils.getPublicComponents()">
+        <container-element [ngSwitch]="component?.componentId">
+          <card-example-1 *ngSwitchCase="1"></card-example-1>
+          <card-example-2 *ngSwitchCase="2"></card-example-2>
+          <card-example-3 *ngSwitchCase="3"></card-example-3>
+       </container-element>
+      </div>
     </ion-col>
   </ion-row>
 </ion-grid>
